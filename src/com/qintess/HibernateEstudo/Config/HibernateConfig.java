@@ -34,7 +34,7 @@ public class HibernateConfig {
 				prop.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
 
 
-                prop.put(Environment.SHOW_SQL, "true");
+                prop.put(Environment.SHOW_SQL, "false");
                 prop.put(Environment.HBM2DDL_AUTO, "create-drop");
 				prop.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
