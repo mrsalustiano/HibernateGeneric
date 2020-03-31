@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Venda {
+public class Venda implements InterfaceModel  {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,7 +20,25 @@ public class Venda {
 
     private double total;
 
-    public int getId() {
+    @Override
+	public String toString() {
+		return "Venda [id=" + id + ", itens=" + itens + ", total=" + total + "]";
+	}
+
+    
+	public Venda() {
+		
+	}
+
+
+	public Venda(List<ItemVenda> itens, double total) {
+
+		this.itens = itens;
+		this.total = total;
+	}
+
+
+	public int getId() {
         return id;
     }
 
@@ -44,3 +62,4 @@ public class Venda {
         this.total = total;
     }
 }
+

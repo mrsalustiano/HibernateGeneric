@@ -21,13 +21,14 @@ public class GenericDAO<T extends InterfaceModel> {
 			}
 
 			transacao.commit();
-
+			session.close();
 		} catch (Exception e) {
 			if (transacao != null) {
 				transacao.rollback();
 			}
 			e.printStackTrace();
 		}
+		
 	}
 
 

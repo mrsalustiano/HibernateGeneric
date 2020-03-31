@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class ItemVenda {
+public class ItemVenda implements InterfaceModel  {
 
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,23 @@ public class ItemVenda {
 
     private double subtotal;
 
-    public ItemVenda() {
+
+
+	@Override
+	public String toString() {
+		return "ItemVenda [id=" + id + ", produto=" + produto + ", qtd=" + qtd + ", subtotal="
+				+ subtotal + "]";
+	}
+
+	public ItemVenda() {
+	}
+
+	public ItemVenda(Produto produto, Venda venda, int qtd, double subtotal) {
+
+		this.produto = produto;
+		this.venda = venda;
+		this.qtd = qtd;
+		this.subtotal = subtotal;
 	}
 
 	public int getId() {
